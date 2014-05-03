@@ -29,7 +29,7 @@ describe "AuthenticationPages" do
 
     describe "with valid information" do
   	  let(:user) { FactoryGirl.create(:user) }
-  	  before { valid_signin(user) }
+  	  before { sign_in user }
 
   	  it { should have_title(user.name) }
       it { should have_link('Users',       href: users_path) }
@@ -49,6 +49,9 @@ describe "AuthenticationPages" do
 
     describe "for non-signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
+      before { visit root_url }
+      it { should_not have_link('Profile') }
+      it { should_not have_link('Settings') }
 
       describe "when attempting to visit a protected page" do
         before do
