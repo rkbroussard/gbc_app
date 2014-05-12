@@ -9,5 +9,12 @@
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 </div>
-
-  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<div class="align-right">
+  <% if NewsPost.any? %>
+    <h3>Latest News</h3>
+    <ol class="news_posts">
+      <%= render @news_posts %>
+    </ol>
+    <%= will_paginate @news_posts %>
+  <% end %>
+</div>

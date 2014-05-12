@@ -23,6 +23,7 @@ describe User do
   it { should respond_to(:followed_users) }
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
+  it { should respond_to(:news_posts) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -196,6 +197,21 @@ describe User do
           should include(micropost)
         end
       end
+    end
+  end
+
+  describe "news post associations" do
+
+    before { @user.save }
+    let!(:older_news_post) do
+      FactoryGirl.create(:news_post, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_news_post) do
+      FactoryGirl.create(:news_post, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right news posts in the right order" do
+      expect(@user.news_posts.to_a).to eq [newer_news_post, older_news_post]
     end
   end
 end
