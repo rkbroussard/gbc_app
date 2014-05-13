@@ -6,15 +6,17 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
-  	<section>
-  	  <%= render 'shared/micropost_form' %>
-  	</section>
     <section>
       <%= render 'shared/news_post_form' %>
     </section>
   </aside>
   <div class="span8">
-    <h3>Micropost Feed</h3>
-    <%= render 'shared/feed' %>
+    <% if NewsPost.any? %>
+      <h3>Latest News</h3>
+      <ol class="news_posts">
+        <%= render @news_posts %>
+      </ol>
+      <%= will_paginate @news_posts %>
+    <% end %>
   </div>
 </div>

@@ -3,4 +3,9 @@
  <span class="timestamp">
    Posted <%= time_ago_in_words(news_post.created_at) %> ago.
 </span>
+<% if current_user.try(:admin?) && !current_user?(:user) %>
+  | <%= link_to "delete", news_post, method: :delete,
+                                   data: { confirm: "You sure?" },
+                                   title: news_post.content %>
+<% end %>
 </li>
