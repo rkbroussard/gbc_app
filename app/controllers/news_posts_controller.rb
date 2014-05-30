@@ -25,5 +25,7 @@ class NewsPostsController < ApplicationController
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+      @news_post = current_user.news_posts.find_by(id: params[:id])
+      redirect_to root_url if @news_post.nil?
     end
 end
