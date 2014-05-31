@@ -6,6 +6,9 @@
     <section>
       <%= render 'shared/news_post_form' %>
     </section>
+    <section>
+      <%= render 'shared/bulletin_form' %>
+    </section>
   </aside>
   <div class="span8">
     <% if NewsPost.any? %>
@@ -14,6 +17,14 @@
         <%= render @news_posts %>
       </ol>
       <%= will_paginate @news_posts %>
+    <% end %>
+  </div>
+  <div class="span8">
+    <% if Bulletin.any? %>
+      <h3>Bulletins</h3>
+      <ol>
+        <%= render @bulletins %>
+      </ol>
     <% end %>
   </div>
 </div>
