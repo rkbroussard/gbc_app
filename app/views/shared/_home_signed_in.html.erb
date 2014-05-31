@@ -3,15 +3,18 @@
     <section>
   	  <%= render 'shared/user_info' %>
   	</section>
+    <% if current_user.admin? %>
     <section>
       <%= render 'shared/news_post_form' %>
     </section>
     <section>
+      <h1>Upload Bulletins</h1>
       <%= render 'shared/bulletin_form' %>
     </section>
+    <% end %>
   </aside>
   <div class="span8">
-    <% if NewsPost.any? %>
+    <% if NewsPost.any? && current_user.admin? %>
       <h3>Latest News</h3>
       <ol class="news_posts">
         <%= render @news_posts %>
@@ -20,6 +23,9 @@
     <% end %>
   </div>
   <div class="span8">
-    <%= render @bulletin %>
+    <% if Bulletin.any? && current_user.admin? %>
+      <h3>Bulletins</h3>
+        <%= render 'shared/bulletin_list' %>
+    <% end %>
   </div>
 </div>
