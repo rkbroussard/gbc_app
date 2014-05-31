@@ -1,7 +1,3 @@
-<br />
-<%= link_to "New Bulletin", '#', class: "btn btn-primary" %>
-<br />
-<br />
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
@@ -11,11 +7,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @bulletins.each do |bulletin| %>
+    <% @bulletins.each do |doc| %>
       <tr>
-        <td><%= bulletin.name %></td>
-        <td><%= link_to "Download Bulletin", bulletin.attachment_url %></td>
-        <td><%= button_to "Delete",  bulletin, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{bulletin.name}?" %></td>
+        <td><%= doc.name %></td>
+        <td><%= link_to "Download Bulletin", doc.attachment_url %></td>
+        <td><%= button_to "Delete",  doc, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{bulletin.name}?" %></td>
       </tr>
     <% end %>
   </tbody>

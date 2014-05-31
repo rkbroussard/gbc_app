@@ -20,11 +20,6 @@
     <% end %>
   </div>
   <div class="span8">
-    <% if Bulletin.any? %>
-      <h3>Bulletins</h3>
-      <ol>
-        <%= render @bulletins %>
-      </ol>
-    <% end %>
+    <%= render @bulletin %>
   </div>
 </div>

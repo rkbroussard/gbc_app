@@ -1,21 +1,22 @@
 class BulletinsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user,     only: [:create, :destroy]
 
   def create
   	@bulletin = current_user.bulletins.build(bulletin_params)
   	if @bulletin.save
-  	  flash[:success] = "The bulletin #{@bulletin.name} has been
-  	  uploaded."
-  	  redirect_to root_url
+  	  redirect_to root_url, notice:  "The bulletin #{@bulletin.name} has
+  	been created."
   	else
-  	  render "static_pages/home"
+  	  flash[:error] = "Your bulletin upload name is invalid, or no file was attached."
+      redirect_to root_url
   	end
   end
 
   def destroy
+  	@bulletin = Bulletin.find(params[:id])
   	@bulletin.destroy
-  	redirect_to root_url, notice:  "The bulletin #{@bulltin.name} has
+  	redirect_to root_url, notice:  "The bulletin #{@bulletin.name} has
   	been deleted."
   end
 
@@ -26,7 +27,6 @@ private
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
-      @bulletin = current_user.bulletin.find_by(id: params[:id])
-      redirect_to root_url if @bulletin.nil?
+      @bulletin = current_user.bulletins.find_by(id: params[:id])
     end
 end
