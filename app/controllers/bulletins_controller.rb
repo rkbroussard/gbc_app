@@ -8,7 +8,7 @@ class BulletinsController < ApplicationController
   	  redirect_to root_url, notice:  "The bulletin #{@bulletin.name} has
   	been created."
   	else
-  	  flash[:error] = "Your bulletin upload name is invalid, or no file was attached."
+      flash[:error] = "Your bulletin upload name is invalid, or no file was attached."
       redirect_to root_url
   	end
   end

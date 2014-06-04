@@ -5,6 +5,8 @@ ruby '2.0.0'
 gem 'rails', '4.0.5'
 gem 'pg', '0.15.1'
 gem 'carrierwave', '~> 0.9'
+gem 'fog', '~> 1.3.1'
+gem 'carrierwave_direct'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
@@ -44,4 +46,3 @@ end
 group :production do
   gem 'rails_12factor', '0.0.2'
 end
-
