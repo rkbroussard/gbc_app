@@ -1,0 +1,11 @@
+<section>
+  <h1>Upload Bulletins</h1>
+</section>
+
+<%= direct_upload_form_for @uploader do |f| %>
+  <div class="well">
+  	<%= f.label :attachment %>
+  	<%= f.file_field :attachment %>
+  <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
