@@ -2,6 +2,10 @@ class BulletinsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :admin_user,     only: [:create, :destroy]
 
+  def new
+    @bulletin = Bulletin.new(key: params[:key])
+  end
+
   def create
   	@bulletin = current_user.bulletins.build(bulletin_params)
   	if @bulletin.save

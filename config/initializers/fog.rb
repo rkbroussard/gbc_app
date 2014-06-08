@@ -1,11 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
-    :provider               => 'AWS',       # required
-    :aws_access_key_id      => 'AKIAJMAEUMTDPV46WFYQ',       # required
-    :aws_secret_access_key  => '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',       # required
-    #:region                 => 'us-east-1'  # optional, defaults to 'us-east-1'
+    provider:               'AWS',       # required
+    aws_access_key_id:      ENV["AWS_ACCESS_KEY_ID"],
+    aws_secret_access_key:  ENV["AWS_SECRET_ACCESS_KEY"]
   }
-  config.fog_directory  = 'gbc_docs' # required
-  # see https://github.com/jnicklas/carrierwave#using-amazon-s3
-  # for more optional configuration
+  config.fog_directory  = ENV["AWS_S3_BUCKET"]
 end

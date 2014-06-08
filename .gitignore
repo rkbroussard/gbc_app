@@ -9,6 +9,9 @@
 /log/*.log
 /tmp
 
+#Ignore environment variables
+/config/app_environment_variables.rb
+
 # Ignore other unneeded files.
 database.yml
 doc/

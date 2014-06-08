@@ -1,6 +1,5 @@
-<%= direct_upload_form_for(@bulletin) do |f| %>
+<%= direct_upload_form_for @bulletin do |f| %>
   <div class="well">
-  	<%= f.label :name %>
   	<%= f.label :attachment %>
   	<%= f.file_field :attachment %>
   <%= f.submit "Save", class: "btn btn-large btn-primary" %>
