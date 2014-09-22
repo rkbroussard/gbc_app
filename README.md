@@ -1,5 +1,14 @@
-# Ruby on Rails Tutorial: sample application
+# Grayson Baptist Church Web App
 
-This is the sample application for
-the [*Ruby on Rails Tutorial*](http://railstutorial.org/)
-by [Michael Hartl](http://michaelhartl.com/).
+## Description
+
+This application will serve as the main website for Grayson Baptist Church.
+
+## Requirements
+
+| ID | Description |
+| -- | ----------- |
+| R1 | The site must be manageable by employees/administrative members of the church. |
+| R2 | Members of the website must be created by an administrator. (No sign-up button) |
+| R3 | There must be a news page that can easily be updated from the site 
+management page. |
